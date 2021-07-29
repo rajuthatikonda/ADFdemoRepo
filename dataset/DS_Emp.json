@@ -1,0 +1,29 @@
+{
+	"name": "DS_Emp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Linked_service_Blob_container",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "data.txt",
+				"folderPath": "input",
+				"container": "adfdemo"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "raju thatikonda\t",
+				"type": "String"
+			}
+		]
+	}
+}
