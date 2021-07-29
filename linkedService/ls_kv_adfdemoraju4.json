@@ -1,0 +1,11 @@
+{
+	"name": "ls_kv_adfdemoraju4",
+	"properties": {
+		"description": "linked service for adfdemoraju4",
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://KV-AdfDemoRaju4.vault.azure.net/"
+		}
+	}
+}
