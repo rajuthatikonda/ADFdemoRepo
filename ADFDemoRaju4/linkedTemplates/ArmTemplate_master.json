@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "ADFDemoRaju4"
 		},
+		"Linked_service_Blob_container_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Linked_service_Blob_container'"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -33,6 +37,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"Linked_service_Blob_container_connectionString": {
+						"value": "[parameters('Linked_service_Blob_container_connectionString')]"
 					}
 				}
 			},
