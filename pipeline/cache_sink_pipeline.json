@@ -40,9 +40,22 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "MaxSalary",
+					"value": {
+						"value": "@string(activity('DF_cahce_sink').output.runStatus.output.cacheSink.value[0].MaxSalary)",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"MaxSalary": {
+				"type": "String",
+				"defaultValue": " "
+			}
+		},
 		"annotations": []
 	}
 }
