@@ -1,0 +1,28 @@
+{
+	"name": "DF_cahce_sink",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_cachesink",
+						"type": "DatasetReference"
+					},
+					"name": "empcachesink"
+				}
+			],
+			"sinks": [
+				{
+					"name": "cacheSink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Aggregate1"
+				}
+			],
+			"script": "source(output(\n\t\tempid as string,\n\t\tname as string,\n\t\tGender as string,\n\t\tdepartment as string,\n\t\tsalary as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> empcachesink\nempcachesink aggregate(MaxSalary = max(toInteger(salary))) ~> Aggregate1\nAggregate1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tstore: 'cache',\n\tformat: 'inline',\n\toutput: true,\n\tsaveOrder: 1,\n\tmapColumn(\n\t\tMaxSalary\n\t)) ~> cacheSink"
+		}
+	}
+}
